@@ -3,22 +3,22 @@ yum install -y perl make automake gcc gmp-devel libffi zlib xz tar gzip git gnup
 curl -sSL https://get.haskellstack.org/ | sh
 
 # Output directories
-mkdir /github/home/postgrest/bin
-mkdir /github/home/postgrest/lib
+mkdir $GITHUB_WORKSPACE/postgrest/bin
+mkdir $GITHUB_WORKSPACE/postgrest/lib
 
 # Build from source to /bin
 git clone https://github.com/PostgREST/postgrest.git /tmp/postgrest
 cd /tmp/postgrest
-stack build --install-ghc --copy-bins --local-bin-path /github/home/postgrest/bin
+stack build --install-ghc --copy-bins --local-bin-path $GITHUB_WORKSPACE/postgrest/bin
 
 # Copy required libs to /lib
-cp /usr/lib64/libpq.so* /github/home/postgrest/lib
-cp /usr/lib64/libpgtypes.so* /github/home/postgrest/lib
-cp /usr/lib64/libecpg.so* /github/home/postgrest/lib
-cp /usr/lib64/libecpg_compat.so* /github/home/postgrest/lib
+cp /usr/lib64/libpq.so* $GITHUB_WORKSPACE/postgrest/lib
+cp /usr/lib64/libpgtypes.so* $GITHUB_WORKSPACE/postgrest/lib
+cp /usr/lib64/libecpg.so* $GITHUB_WORKSPACE/postgrest/lib
+cp /usr/lib64/libecpg_compat.so* $GITHUB_WORKSPACE/postgrest/lib
 
 # Create tarball
-cd /github/home/postgrest
+cd $GITHUB_WORKSPACE/postgrest
 tar -czvf postgrest.tar.gz bin lib
 
 echo "::set-output name=tarbar::postgrest/postgrest.tar.gz"
