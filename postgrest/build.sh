@@ -9,6 +9,7 @@ mkdir $GITHUB_WORKSPACE/postgrest/lib
 # Build from source to /bin
 git clone https://github.com/PostgREST/postgrest.git /tmp/postgrest
 cd /tmp/postgrest
+mkdir $HOME/.stack
 stack build --install-ghc --copy-bins --local-bin-path $GITHUB_WORKSPACE/postgrest/bin
 
 # Copy required libs to /lib
