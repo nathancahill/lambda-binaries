@@ -1,0 +1,8 @@
+name: 'Build Postgrest'
+description: 'Build Postgrest'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+outputs:
+  tarball:
+    description: 'Tarball'

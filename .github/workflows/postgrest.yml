@@ -1,0 +1,17 @@
+on: [push]
+
+jobs:
+  postgrest:
+    runs-on: ubuntu-latest
+    name: Build Postgrest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        uses: ./postgrest/
+        id: build
+      - name: Upload
+        uses: actions/upload-artifact@v1
+        with:
+          name: postgrest.tar.gz
+          path: ${{ steps.build.outputs.tarball }}
