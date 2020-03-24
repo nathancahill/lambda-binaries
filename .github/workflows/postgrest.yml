@@ -10,8 +10,27 @@ jobs:
       - name: Build
         uses: ./postgrest/
         id: build
-      - name: Upload
-        uses: actions/upload-artifact@v1
+      - name: Short SHA
+        id: vars
+        run: |
+          echo ::set-output name=short_sha::$(git rev-parse --short=7 ${{ github.sha }})
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: postgrest.tar.gz
-          path: ${{ steps.build.outputs.tarball }}
+          tag_name: ${{ steps.vars.outputs.short_sha }}
+          release_name: ${{ steps.vars.outputs.short_sha }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.build.outputs.tarball }}
+          asset_name: postgrest.tar.gz
+          asset_content_type: application/gzip

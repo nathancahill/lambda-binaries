@@ -22,4 +22,4 @@ cp /usr/lib64/libecpg_compat.so* $GITHUB_WORKSPACE/postgrest/lib
 cd $GITHUB_WORKSPACE/postgrest
 tar -czvf postgrest.tar.gz bin lib
 
-echo "::set-output name=tarbar::postgrest/postgrest.tar.gz"
+echo "::set-output name=tarball::postgrest/postgrest.tar.gz"
