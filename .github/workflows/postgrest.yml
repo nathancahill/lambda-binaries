@@ -16,7 +16,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: https://uploads.github.com/repos/nathancahill/lambda-binaries/releases/postgrest/assets{?name,label}
+          upload_url: https://uploads.github.com/repos/nathancahill/lambda-binaries/releases/24827994/assets{?name,label}
           asset_path: ${{ steps.build.outputs.tarball }}
           asset_name: postgrest.tar.gz
           asset_content_type: application/gzip
