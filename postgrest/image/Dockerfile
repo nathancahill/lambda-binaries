@@ -1,6 +1,6 @@
 FROM lambci/lambda:build-nodejs12.x
 
-RUN yum install -y perl make automake gcc gmp-devel libffi zlib xz tar gzip git gnupg
+RUN yum install -y perl make automake gcc gmp-devel libffi zlib xz tar gzip git gnupg postgresql-devel
 RUN curl -o /get-stack.sh -sSL https://get.haskellstack.org/
 RUN chmod +x /get-stack.sh
 RUN /get-stack.sh
