@@ -1,4 +1,4 @@
-FROM lambci/lambda:build-nodejs12.x
+FROM nathancahill/postgrest
 
 COPY build.sh /build.sh
 
