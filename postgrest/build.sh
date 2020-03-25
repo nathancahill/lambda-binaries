@@ -15,6 +15,7 @@ cp /usr/lib64/libldap_r* $GITHUB_WORKSPACE/postgrest/lib
 cp /usr/lib64/liblber* $GITHUB_WORKSPACE/postgrest/lib
 cp /usr/lib64/libsasl2* $GITHUB_WORKSPACE/postgrest/lib
 cp /usr/lib64/libssl3* $GITHUB_WORKSPACE/postgrest/lib
+cp /usr/lib64/libsmime3* $GITHUB_WORKSPACE/postgrest/lib
 
 # Create tarball
 cd $GITHUB_WORKSPACE/postgrest
