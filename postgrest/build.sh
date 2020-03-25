@@ -18,6 +18,7 @@ cp /usr/lib64/libpgtypes.so* $GITHUB_WORKSPACE/postgrest/lib
 cp /usr/lib64/libecpg.so* $GITHUB_WORKSPACE/postgrest/lib
 cp /usr/lib64/libecpg_compat.so* $GITHUB_WORKSPACE/postgrest/lib
 cp /usr/lib64/libldap_r* $GITHUB_WORKSPACE/postgrest/lib
+cp /usr/lib64/liblber* $GITHUB_WORKSPACE/postgrest/lib
 
 # Create tarball
 cd $GITHUB_WORKSPACE/postgrest
