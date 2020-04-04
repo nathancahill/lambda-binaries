@@ -8,5 +8,7 @@ RUN /get-stack.sh
 RUN mkdir $HOME/.stack
 RUN git clone https://github.com/PostgREST/postgrest.git /tmp/postgrest
 WORKDIR /tmp/postgrest
+RUN git fetch --tags
+RUN git checkout tags/v7.0.0
 RUN mkdir bin
 RUN stack build --install-ghc --copy-bins --local-bin-path /tmp/postgrest/bin
