@@ -3,7 +3,7 @@
 mkdir $GITHUB_WORKSPACE/pgformatter/bin
 
 # Copy binaries
-cp /tmp/pgformatter/pgFormatter-4.3/pg_format $GITHUB_WORKSPACE/postgrest/bin
+cp /tmp/pgformatter/pgFormatter-4.3/pg_format $GITHUB_WORKSPACE/pgformatter/bin
 
 # Create tarball
 cd $GITHUB_WORKSPACE/pgformatter
